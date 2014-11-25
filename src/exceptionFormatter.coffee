@@ -47,7 +47,7 @@ endsWith = (str, suffix) -> str[-suffix.length..] is suffix
 
 # Given a line from an exception, returns the {filename, line, column} of the exception, or
 # null if the line cannot be parsed.
-exports.parseExceptionLine = parseExceptionLine = do ->
+parseExceptionLine = do ->
     STACK_LINE_RE = /(\s*)at\s*([^\s]*)\s*\((.*?):(\d*):(\d*)\)/
     STACK_LINE_NO_FN_RE = /(\s*)at\s*(.*?):(\d*):(\d*)/
 
@@ -211,3 +211,5 @@ formatters = {
 module.exports = (exception, options={}) ->
     format = options.format ? 'ascii'
     return formatters[format] exception, options
+
+module.exports.parseExceptionLine = parseExceptionLine
