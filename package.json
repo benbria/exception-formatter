@@ -1,6 +1,6 @@
 {
   "name": "exception-formatter",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Jason Walton <dev@lucid.thedreaming.org> (https://github.com/jwalton)",
   "repository": {
     "type": "git",
@@ -21,6 +21,6 @@
     "test": "mocha"
   },
   "engines": {
-    "node": "0.10.30"
+    "node": ">=0.10.1"
   }
 }
