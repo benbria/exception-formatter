@@ -1,0 +1,51 @@
+What is it?
+===========
+
+`exception-formatter` is an NPM package that takes exceptions or stack traces that would normally look like this:
+
+and makes them look like this:
+
+or, in HTML, like this:
+
+Features
+========
+
+* Automatically highlights your code, as opposed to included modules or node.js system libraries
+  (since your code is likely where the problem is.)
+* Strips leading project paths to make exceptions more readable.
+* Can read [longjohn](https://github.com/mattinsler/longjohn) and
+  [streamline](https://github.com/Sage/streamlinejs) async stacks.
+
+Installation
+============
+
+    npm install --save exception-formatter
+
+Usage
+=====
+
+    exceptionFormatter = require('exception-formatter');
+    console.log( exceptionFormatter(err, options) );
+
+Where `err` is either an `Error`, a `{stack}` object, or a string containing a stack trace.
+`options` is an optional parameter containing the following:
+
+* `options.format`   - one of 'ascii', 'ansi', 'html'.  'ascii' and 'ansi' are identical, except
+  that 'ansi' will use ANSI color codes to highlight lines.
+* `options.basepath` - this is your project's root folder.  If you're writing code in
+  src/myFile.js, then this should be `path.resolve(__dirname, '..')`.  This path will be
+  stripped from the start of every filename in the exception, and is also used to help
+  decide which code is "your code" and which is not.  If this is not provided, then `process.cwd()`
+  is used by default.
+* `options.colors` - (Only for `format = 'ansi'`)  If true (the default) then lines which are
+  "your code" will be bolded and colorized.  If false, then lines will only be bolded.
+* `options.inlineStyle` - (Only for `format = 'html'`) If this option is true, then each line will
+  be styled with inline `style` attributes.  If false, each line will be given a `class` instead
+  and you can do your own styling.  Note that inline styline is usually required if you want to
+  email an exception, since email clients will generally ignore style sheets.
+
+"Your Code"
+===========
+
+`exception-formatter` will mark code as "your code" if it is in `options.basepath`, and if it does
+not contain `node_modules` anywhere in it's path.
