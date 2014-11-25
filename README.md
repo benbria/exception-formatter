@@ -38,11 +38,14 @@ Where `err` is either an `Error`, a `{stack}` object, or a string containing a s
 
 * `options.format`   - one of 'ascii', 'ansi', 'html'.  'ascii' and 'ansi' are identical, except
   that 'ansi' will use ANSI color codes to highlight lines.
+* `options.maxLines` - The maximum number of lines to print from the exception.  0 or `null` for
+  unlimited (the default.)
 * `options.basepath` - this is your project's root folder.  If you're writing code in
   src/myFile.js, then this should be `path.resolve(__dirname, '..')`.  This path will be
   stripped from the start of every filename in the exception, and is also used to help
   decide which code is "your code" and which is not.  If this is not provided, then `process.cwd()`
   is used by default.
+* `options.basepathReplacement` - String used to replace the `basepath`.  Defaults to "./".
 * `options.colors` - (Only for `format = 'ansi'`)  If true (the default) then lines which are
   "your code" will be bolded and colorized.  If false, then lines will only be bolded.
 * `options.inlineStyle` - (Only for `format = 'html'`) If this option is true, then each line will
