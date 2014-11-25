@@ -16,8 +16,8 @@ or, in HTML, like this:
 Features
 ========
 
-* Automatically highlights your code, as opposed to included modules or node.js system libraries
-  (since your code is likely where the problem is.)
+* Automatically highlights *your* code (as opposed to included modules or node.js system libraries)
+  since your code is likely where the problem is.
 * Strips leading project paths to make exceptions more readable.
 * Can read [longjohn](https://github.com/mattinsler/longjohn) and
   [streamline](https://github.com/Sage/streamlinejs) async stacks.
