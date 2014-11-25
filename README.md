@@ -3,9 +3,15 @@ What is it?
 
 `exception-formatter` is an NPM package that takes exceptions or stack traces that would normally look like this:
 
+![](https://github.com/benbria/exception-formatter/blob/master/docs/error.png)
+
 and makes them look like this:
 
+![](https://github.com/benbria/exception-formatter/blob/master/docs/ansi.png)
+
 or, in HTML, like this:
+
+![](https://github.com/benbria/exception-formatter/blob/master/docs/html.png)
 
 Features
 ========
