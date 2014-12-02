@@ -1,8 +1,13 @@
 {
   "name": "exception-formatter",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": "Jason Walton <dev@lucid.thedreaming.org> (https://github.com/jwalton)",
-  "keywords": ["error", "exception", "format", "pretty"],
+  "keywords": [
+    "error",
+    "exception",
+    "format",
+    "pretty"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/benbria/exception-formatter.git"
