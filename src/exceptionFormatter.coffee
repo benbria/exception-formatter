@@ -207,6 +207,8 @@ formatters = {
 # * This function will call `String.replace(options.basepath, options.basepathReplacement)` on
 #   every source line.  This can be used to strip the project folder from file pathnames.
 #   `options.basepathReplacement` defaults to "./" if not specified.
+# * `options.maxLines` is the maximum number of stack trace lines to to print for an exception, 0
+#   for unlimited.
 #
 module.exports = (exception, options={}) ->
     format = options.format ? 'ascii'
