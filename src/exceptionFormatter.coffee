@@ -78,7 +78,10 @@ parseException = do ->
 
     return (exception, options = {}) ->
         basepath = options.basepath ? process.cwd()
-        if !endsWith(basepath, path.sep) then basepath += path.sep
+
+        # Add a trailing '/' to the basepath if it doesn't have one, because `__dirname` doesn't
+        # have one.  Don't add the trailing '/' if it's a regex, because that's crazy talk.  :)
+        if isString(basepath) and !endsWith(basepath, path.sep) then basepath += path.sep
         basepathReplacement = options.basepathReplacement ? ".#{path.sep}"
 
         exceptionText = if isString(exception)
@@ -106,7 +109,7 @@ parseException = do ->
                     filename = parsed.filename
                     endOfHeader = true
                     type = SOURCE
-                    if filename.indexOf('node_modules') is -1 and filename.indexOf(basepath) isnt -1
+                    if filename.indexOf('node_modules') is -1 and filename.search(basepath) isnt -1
                         type = OUR_SOURCE
 
             if !endOfHeader and !type
