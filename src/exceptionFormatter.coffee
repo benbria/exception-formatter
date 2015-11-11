@@ -109,7 +109,8 @@ parseException = do ->
                     filename = parsed.filename
                     endOfHeader = true
                     type = SOURCE
-                    if filename.indexOf('node_modules') is -1 and filename.search(basepath) isnt -1
+                    if filename.indexOf('node_modules') is -1 and
+                      filename[if isString basepath then 'indexOf' else 'search'](basepath) isnt -1
                         type = OUR_SOURCE
 
             if !endOfHeader and !type
