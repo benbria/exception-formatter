@@ -16,15 +16,18 @@
     "colors": "^1.0.3"
   },
   "devDependencies": {
-    "chai": "^1.10.0",
+    "chai": "^3.4.1",
+    "coffee-coverage": "^0.7.0",
     "coffee-script": "^1.8.0",
+    "istanbul": "^0.4.0",
     "longjohn": "^0.2.4",
     "mocha": "^2.0.1"
   },
   "main": "./lib/exceptionFormatter.js",
   "scripts": {
     "prepublish": "coffee -c -o lib src",
-    "test": "mocha"
+    "test": "mocha",
+    "coverage": "mocha && istanbul report text-summary lcov"
   },
   "engines": {
     "node": ">=0.10.1"
