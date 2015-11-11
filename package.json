@@ -19,6 +19,7 @@
     "chai": "^3.4.1",
     "coffee-coverage": "^0.7.0",
     "coffee-script": "^1.8.0",
+    "coveralls": "^2.11.4",
     "istanbul": "^0.4.0",
     "longjohn": "^0.2.4",
     "mocha": "^2.0.1"
