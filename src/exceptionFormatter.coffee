@@ -40,7 +40,7 @@ isString = (value) ->
 
 # Strip all ansi colors from a string.
 stripColors = (str) ->
-    re = /\033\[[0-9;]*m/g
+    re = new RegExp `'\033\[[0-9;]*m'`, 'g'
     return str.replace re, ''
 
 endsWith = (str, suffix) -> str[-suffix.length..] is suffix
