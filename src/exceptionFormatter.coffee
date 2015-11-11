@@ -24,6 +24,8 @@ OUR_SOURCE = "our-source"
 UNKNOWN    = "unknown"
 DIVIDER    = "divider"
 
+{stripColors} = require './utils'
+
 # Borrowed from ejs
 escapeHtml = (html) ->
     return String(html)\
@@ -37,11 +39,6 @@ isString = (value) ->
     typeof value is 'string' or
         value and typeof value is 'object' and toString.call(value) is '[object String]' or
         false
-
-# Strip all ansi colors from a string.
-stripColors = (str) ->
-    re = new RegExp `'\033\[[0-9;]*m'`, 'g'
-    return str.replace re, ''
 
 endsWith = (str, suffix) -> str[-suffix.length..] is suffix
 
