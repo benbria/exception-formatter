@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/benbria/exception-formatter.svg?branch=master)](https://travis-ci.org/benbria/exception-formatter)
+[![Coverage Status](https://coveralls.io/repos/benbria/exception-formatter/badge.svg?branch=master&service=github)](https://coveralls.io/github/benbria/exception-formatter?branch=master)
+
 What is it?
 ===========
 
