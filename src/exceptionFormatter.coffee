@@ -40,7 +40,7 @@ isString = (value) ->
 
 # Strip all ansi colors from a string.
 stripColors = (str) ->
-    re = /\033\[[0-9;]*m/g
+    re = new RegExp `'\033\[[0-9;]*m'`, 'g'
     return str.replace re, ''
 
 endsWith = (str, suffix) -> str[-suffix.length..] is suffix
@@ -109,7 +109,8 @@ parseException = do ->
                     filename = parsed.filename
                     endOfHeader = true
                     type = SOURCE
-                    if filename.indexOf('node_modules') is -1 and filename.search(basepath) isnt -1
+                    if filename.indexOf('node_modules') is -1 and
+                      filename[if isString basepath then 'indexOf' else 'search'](basepath) isnt -1
                         type = OUR_SOURCE
 
             if !endOfHeader and !type
