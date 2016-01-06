@@ -140,6 +140,12 @@ formatExceptionLines = (exception, options, lineFn) ->
     if options.maxLines and lines.length > options.maxLines
         lines = lines[0..options.maxLines]
         lines.push line: indent '[truncated]', type: DIVIDER
+    if options.maxLines is 'auto'
+        for line, i in lines by -1
+          if line.type is OUR_SOURCE
+            lines = lines[0..i]
+            lines.push line: indent '[truncated]', type: DIVIDER
+            break
 
     lines = lines.map lineFn
 
