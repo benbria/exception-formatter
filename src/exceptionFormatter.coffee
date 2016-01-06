@@ -135,10 +135,11 @@ parseException = do ->
 #
 formatExceptionLines = (exception, options, lineFn) ->
     lines = parseException exception, options
+    indent = (s) -> (lines[lines.length - 1].parsed?.indent or '') + s
 
     if options.maxLines and lines.length > options.maxLines
         lines = lines[0..options.maxLines]
-        lines.push lineFn("[truncated]", DIVIDER)
+        lines.push line: indent '[truncated]', type: DIVIDER
 
     lines = lines.map lineFn
 
