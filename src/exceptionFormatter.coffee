@@ -137,8 +137,8 @@ formatExceptionLines = (exception, options, lineFn) ->
     lines = parseException exception, options
 
     if options.maxLines and lines.length > options.maxLines
-        lines = lines[0..options.maxLines]
-        lines.push lineFn("[truncated]", DIVIDER)
+        lines = lines.slice(0, options.maxLines + 1)
+        lines.push {line: "  [truncated]", type: DIVIDER}
 
     lines = lines.map lineFn
 
