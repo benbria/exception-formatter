@@ -28,6 +28,13 @@ describe "exceptionFormatter", ->
                 [truncated]
         """
 
+    it "should truncate a long exception to 0 lines", ->
+        result = exceptionFormatter DUMMY_EXCETPION, {format: 'ascii', maxLines: 0}
+        expect(result).to.equal """
+            Error: foo
+                [truncated]
+        """
+
     it "should format a stack trace without throwing any exceptions", ->
         exceptionFormatter (new Error("foo")).stack
 
