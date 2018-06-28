@@ -26,8 +26,10 @@
   },
   "main": "./lib/exceptionFormatter.js",
   "scripts": {
-    "prepublish": "coffee -c -o lib src",
-    "test": "mocha && istanbul report text-summary lcov"
+    "build": "coffee -c -o lib src",
+    "test": "mocha && istanbul report text-summary lcov",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm run test"
   },
   "engines": {
     "node": ">=0.10.1"
