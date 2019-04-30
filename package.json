@@ -2,6 +2,7 @@
   "name": "exception-formatter",
   "version": "1.0.7",
   "author": "Jason Walton <dev@lucid.thedreaming.org> (https://github.com/jwalton)",
+  "license": "MIT",
   "keywords": [
     "error",
     "exception",
