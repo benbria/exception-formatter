@@ -30,8 +30,10 @@
     "nyc": "^14.1.0"
   },
   "main": "./lib/exceptionFormatter.js",
+  "types": "./exceptionFormatter.d.ts",
   "files": [
-    "lib/**/*"
+    "lib/**/*",
+    "exceptionFormatter.d.ts"
   ],
   "scripts": {
     "build": "coffee -c -o lib src",
