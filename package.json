@@ -17,18 +17,25 @@
     "colors": "^1.0.3"
   },
   "devDependencies": {
-    "chai": "^3.4.1",
-    "coffee-coverage": "^0.7.0",
+    "chai": "^4.2.0",
     "coffee-script": "^1.8.0",
-    "coveralls": "^2.11.4",
+    "coveralls": "^3.0.3",
+    "eslint": "^5.16.0",
+    "eslint-config-benbria": "^4.0.0",
+    "eslint-plugin-import": "^2.17.2",
+    "eslint-plugin-promise": "^4.1.1",
     "istanbul": "^0.4.0",
     "longjohn": "^0.2.4",
-    "mocha": "^2.0.1"
+    "mocha": "^6.1.4",
+    "nyc": "^14.1.0"
   },
   "main": "./lib/exceptionFormatter.js",
+  "files": [
+    "lib/**/*"
+  ],
   "scripts": {
     "build": "coffee -c -o lib src",
-    "test": "mocha && istanbul report text-summary lcov",
+    "test": "nyc mocha 'test/**/*.js'",
     "prepare": "npm run build",
     "prepublishOnly": "npm run test"
   },

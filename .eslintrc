@@ -1,0 +1,7 @@
+{
+    "extends": "benbria",
+    "rules": {
+        "comma-dangle": "off",
+        "wrap-iife": "off"
+    }
+}
