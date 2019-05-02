@@ -15,4 +15,4 @@ type ExceptionFormatterOptions =
 declare function exceptionFormatter(
     exception: Error | { stack: string } | string,
     options?: ExceptionFormatterOptions,
-);
+): string;
