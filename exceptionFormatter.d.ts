@@ -1,7 +1,7 @@
 export = exceptionFormatter;
 
 interface ExceptionFormatterOptionsCommon {
-    maxLines?: number | null;
+    maxLines?: number | null | 'auto';
     basepath?: string;
     basepathReplacement?: string;
 }
