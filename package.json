@@ -31,17 +31,14 @@
     "nyc": "^14.1.0",
     "semantic-release": "^15.13.3"
   },
-  "main": "./lib/exceptionFormatter.js",
+  "main": "./src/exceptionFormatter.js",
   "types": "./exceptionFormatter.d.ts",
   "files": [
-    "lib/**/*",
+    "src/**/*",
     "exceptionFormatter.d.ts"
   ],
   "scripts": {
-    "build": "coffee -c -o lib src",
     "test": "nyc mocha 'test/**/*.js'",
-    "prepare": "npm run build",
-    "prepublishOnly": "npm run test",
     "semantic-release": "semantic-release"
   },
   "engines": {
