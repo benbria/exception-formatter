@@ -1,6 +1,6 @@
 {
   "name": "exception-formatter",
-  "version": "1.0.7",
+  "version": "0.0.0-semantic-release",
   "author": "Jason Walton <dev@lucid.thedreaming.org> (https://github.com/jwalton)",
   "license": "MIT",
   "keywords": [
@@ -17,6 +17,7 @@
     "colors": "^1.0.3"
   },
   "devDependencies": {
+    "@benbria/semantic-release-config": "^1.0.0",
     "chai": "^4.2.0",
     "coffee-script": "^1.8.0",
     "coveralls": "^3.0.3",
@@ -27,7 +28,8 @@
     "istanbul": "^0.4.0",
     "longjohn": "^0.2.4",
     "mocha": "^6.1.4",
-    "nyc": "^14.1.0"
+    "nyc": "^14.1.0",
+    "semantic-release": "^15.13.3"
   },
   "main": "./lib/exceptionFormatter.js",
   "types": "./exceptionFormatter.d.ts",
@@ -39,7 +41,8 @@
     "build": "coffee -c -o lib src",
     "test": "nyc mocha 'test/**/*.js'",
     "prepare": "npm run build",
-    "prepublishOnly": "npm run test"
+    "prepublishOnly": "npm run test",
+    "semantic-release": "semantic-release"
   },
   "engines": {
     "node": ">=0.10.1"
