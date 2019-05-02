@@ -156,10 +156,29 @@ function parseException(exception, options = {}) {
 //
 const formatExceptionLines = function(exception, options, lineFn) {
     let lines = parseException(exception, options);
+    const indent = (s) => {
+        const indent = lines[lines.length -1].parsed && lines[lines.length -1].parsed.indent || '    ';
+        return `${indent}${s}`;
+    };
 
     if (isDefined(options.maxLines) && lines.length > options.maxLines) {
         lines = lines.slice(0, options.maxLines + 1);
-        lines.push({ line: '    [truncated]', type: DIVIDER });
+        lines.push({ line: indent('[truncated]'), type: DIVIDER });
+    }
+
+    if (options.maxLines === 'auto') {
+        let lastOwnedLine;
+        for(let index = lines.length -1; index >= 0; index--) {
+            if (lines[index].type === OUR_SOURCE) {
+                lastOwnedLine = index;
+                break;
+            }
+        }
+
+        if (lastOwnedLine) {
+            lines = lines.slice(0, lastOwnedLine + 1);
+            lines.push({ line: indent('[truncated]'), type: DIVIDER });
+        }
     }
 
     lines = lines.map(lineFn);
